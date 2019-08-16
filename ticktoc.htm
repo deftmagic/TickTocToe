@@ -1,0 +1,115 @@
+<html>
+<title></title>
+<style>
+	.dot {
+	  height: 25px;
+	  width: 25px;
+	  background-color: #fff;
+	  border-radius: 50%;
+	  border-color: #fff;	
+	  border-size: 1px;
+	  border-style: 	solid;	
+	  display: inline-block;
+	  margin: 0px;
+	  padding: 0px;	
+	}
+	.divInline{
+		overflow: 	hidden;	
+		display: inline-block;
+    margin: 0px;
+    padding: 0px;	
+    border: 	1px solid	#eee;
+    
+	}
+</style>
+<body>
+
+  <p id="gameSet"></p>
+	<p>
+		<div id="b1" class="divInline" onclick="onTurn(id);"><span class="dot">	</span></div>
+		<div id="b2" class="divInline" onclick="onTurn(id);"><span class="dot">	</span></div>
+		<div id="b3" class="divInline" onclick="onTurn(id);"><span class="dot">	</span></div>
+	</p>
+	<p>
+		<div id="b4" class="divInline" onclick="onTurn(id);"><span class="dot">	</span></div>
+		<div id="b5" class="divInline" onclick="onTurn(id);"><span class="dot">	</span></div>
+		<div id="b6" class="divInline" onclick="onTurn(id);"><span class="dot">	</span></div>
+	</p>
+	<p>
+		<div id="b7" class="divInline" onclick="onTurn(id);"><span class="dot">	</span></div>
+		<div id="b8" class="divInline" onclick="onTurn(id);"><span class="dot">	</span></div>
+		<div id="b9" class="divInline" onclick="onTurn(id);"><span class="dot">	</span></div>
+	</p>
+	
+</body>
+<script type="text/javascript" language="javascript">
+	
+	var myTurn = 1;	
+	var chkTurn = [];
+	var conTurn;
+	var getDocId = "";
+	function onTurn(id){
+		conTurn = 0;
+
+		if(id == "b1"){
+			chkTurn[0] = id;
+		}else if(id == "b2"){
+			chkTurn[1] = id;	
+		}else if(id == "b3"){
+			chkTurn[2] = id;	
+		}else if(id == "b4"){
+			chkTurn[3] = id;	
+		}else if(id == "b5"){
+			chkTurn[4] = id;	
+		}else if(id == "b6"){
+			chkTurn[5] = id;	
+		}else if(id == "b7"){
+			chkTurn[6] = id;	
+		}else if(id == "b8"){
+			chkTurn[7] = id;	
+		}else if(id == "b9"){
+			chkTurn[8] = id;	
+		}
+
+
+		for(var i = 0; i <= 8; i++){
+			if (chkTurn[i] == "" || chkTurn[i] == null){
+				conTurn = 1;
+			}
+
+		// 	getDocBorderColor = document.getElementById("b" + i).getElementsByClassName("dot")[0].style.borderColor;
+
+		console.log("conTurn", chkTurn, conTurn);
+
+		// 	if (getDocBorderColor == "#fff") {
+		// 		conTurn = 1;
+		// 	}
+
+		}
+			
+		if(conTurn){
+			var getDot = document.getElementById(id).getElementsByClassName("dot")[0];
+			if(myTurn == 1){
+		  	getDot.style.backgroundColor = "#000";
+		  	getDot.style.borderColor = "#000";
+		  	myTurn = 2;
+
+		  }else if(myTurn == 2){
+		  	getDot.style.backgroundColor = "#fff";
+		  	getDot.style.borderColor = "#000";
+		  	myTurn = 1;
+		  }
+		}else{
+			document.getElementById("gameSet").innerHTML = "Well Done!";
+
+			setInterval(function(){
+				location.reload();
+			},1000);
+			
+
+		}
+
+	}
+	
+</script>
+</html>
