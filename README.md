@@ -1,5 +1,6 @@
 # TickTocToe
 Some Javascipt Game
 
+Change My Description 
+-- This is some script game developed by Nora
 
-This is a TicktockToe Game developed by an amateur me! :D
